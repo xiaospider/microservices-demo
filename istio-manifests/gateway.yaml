@@ -21,11 +21,11 @@ spec:
     istio: ingressgateway # use Istio default gateway implementation
   servers:
   - port:
-      number: 8080
+      number: 80
       name: http
       protocol: HTTP
     hosts:
-    - "thr-icam1.fyre.ibm.com"
+    - "*"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -33,11 +33,16 @@ metadata:
   name: frontend-ingress
 spec:
   hosts:
-  - "thr-icam1.fyre.ibm.com"
+  - "*"
   gateways:
   - google-shop-gateway
   http:
-  - route:
+  - match:
+    - uri:
+        prefix: "/gcdemo"
+    rewrite:
+      uri: /
+    route:
     - destination:
         host: frontend
         port:
