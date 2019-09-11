@@ -41,7 +41,8 @@ spec:
     - uri:
         prefix: "/gcdemo"
     - headers:
-        Referer: "*/gcdemo"
+        Referer: 
+          regex: "\/gcdemo"
     rewrite:
       uri: /
     route:
