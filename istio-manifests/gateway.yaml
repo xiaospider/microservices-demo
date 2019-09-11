@@ -25,7 +25,7 @@ spec:
       name: http
       protocol: HTTP
     hosts:
-    - "*"
+    - "thr-icam1.fyre.ibm.com"
 ---
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
@@ -33,7 +33,7 @@ metadata:
   name: frontend-ingress
 spec:
   hosts:
-  - "*"
+  - "thr-icam1.fyre.ibm.com"
   gateways:
   - google-shop-gateway
   http:
