@@ -41,8 +41,8 @@ spec:
     - uri:
         prefix: "/gcdemo"
     - headers:
-        Referer: 
-          regex: "\/gcdemo"
+        cookie:
+          regex: "^.*?(shop_session-id=).*?$"
     rewrite:
       uri: /
     route:
@@ -50,3 +50,6 @@ spec:
         host: frontend
         port:
           number: 80
+
+
+        
